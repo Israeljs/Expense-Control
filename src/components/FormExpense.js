@@ -15,11 +15,6 @@ class FormExpense extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    // this.descriptionExpense = this.descriptionExpense.bind(this);
-    // this.currencyExpense = this.currencyExpense.bind(this);
-    // this.paymentExpense = this.paymentExpense.bind(this);
-    // this.tagExpense = this.tagExpense.bind(this);
-    // this.buttonSubmit = this.buttonSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -82,7 +77,7 @@ class FormExpense extends React.Component {
           onChange={ this.handleChange }
           data-testid="currency-input"
         >
-          {currencyKeys.map((curr) => (
+          {currencyKeys && currencyKeys.map((curr) => (
             <option
               key={ curr }
               data-testid={ curr }
@@ -105,7 +100,7 @@ class FormExpense extends React.Component {
           value={ method }
           name="method"
           onChange={ this.handleChange }
-          data-testid="tag-input"
+          data-testid="method-input"
         >
           <option value="Dinheiro">Dinheiro</option>
           <option value="Cartão de crédito">Cartão de crédito</option>
@@ -190,11 +185,13 @@ FormExpense.propTypes = {
 // };
 
 const mapStateToProps = (state) => ({
-  currencyKeys: state.wallet.currencies,
-  currencies: state.wallet.currencyKeys,
-  // expenses: state.wallet.expenses,
+  currencyKeys: state.wallet.currencyKeys,
+  currencies: state.wallet.currencies,
 });
-
+// const mapStateToProps = (state) => ({
+//   currencyKeys: state.wallet.currencies,
+//   currencies: state.wallet.currencyKeys,
+// });
 const mapDispatchToProps = (dispatch) => ({ // recebe um objeto que recebe a dispatch que recebe uma action
   requestKeyCurrencies: () => dispatch(requestApiCurrenciesThunk()),
   saveExepenses: (state) => dispatch(addExpense(state)),

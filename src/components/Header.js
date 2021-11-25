@@ -13,27 +13,27 @@ class Header extends React.Component {
 
     return (
       <header className="Header">
-        {/* <section className="Header-info"> */}
-        {/* <div> */}
-        <span
-          data-testid="email-field"
-        >
-          { email }
-        </span>
-        {/* </div> */}
-        {/* <div className="Total"> */}
-        <span
-          data-testid="total-field"
-        >
-          {totalExpenses}
-        </span>
-        <span
-          data-testid="header-currency-field"
-        >
-          BRL
-        </span>
-        {/* </div> */}
-        {/* </section> */}
+        <section className="Header-info">
+          <div>
+            <span
+              data-testid="email-field"
+            >
+              { `Email: ${email}` }
+            </span>
+          </div>
+          <div className="Total">
+            <span
+              data-testid="total-field"
+            >
+              {`Despesa total: R$ ${totalExpenses} `}
+            </span>
+            <span
+              data-testid="header-currency-field"
+            >
+              BRL
+            </span>
+          </div>
+        </section>
       </header>
     );
   }
