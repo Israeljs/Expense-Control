@@ -9,14 +9,28 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
+      disabledButton: true,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.isButtonDisAble = this.isButtonDisAble.bind(this);
+  }
+
+  isButtonDisAble() {
+    const { email, password } = this.state;
+    const PASSWORD_LENGTH = 6;
+    const regex = /\S+@\S+\.\S+/; // Fonte: www.horadecodar.com.br
+    const isabled = !(regex.test(email) && password.length >= PASSWORD_LENGTH);
+    this.setState({
+      disabledButton: isabled,
+    });
   }
 
   handleChange({ target }) {
     const { name, value } = target;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value,
+    }, () => this.isButtonDisAble());
   }
 
   handleClick() {
@@ -28,14 +42,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password } = this.state;
-    let isButtonAble = true;
-    const PASSWORD_LENGTH = 6;
-    const isValidPassword = (password.length >= PASSWORD_LENGTH);
-    // https://www.horadecodar.com.br/2020/09/07/expressao-regular-para-validar-e-mail-javascript-regex/
-    const regex = /\S+@\S+\.\S+/;
-    const isValisEmail = regex.test(email);
-    isButtonAble = !(isValisEmail && isValidPassword);
+    const { email, password, disabledButton } = this.state;
     return (
       <form className="Login">
         <h1 className="text-center">Login</h1>
@@ -61,7 +68,7 @@ class Login extends React.Component {
           className="button"
           type="button"
           onClick={ this.handleClick }
-          disabled={ isButtonAble }
+          disabled={ disabledButton }
         >
           Entrar
         </button>
