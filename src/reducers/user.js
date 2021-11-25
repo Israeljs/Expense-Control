@@ -2,10 +2,6 @@ import { SAVE_LOGIN_INFO } from '../actions';
 
 const INITIAL_STATE = {
   email: '',
-  // wallet: {
-  //   currencies: [],
-  //   expenses: [],
-  // },
 };
 
 const user = (state = INITIAL_STATE, action) => {
