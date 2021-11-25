@@ -65,8 +65,6 @@ class FormExpense extends React.Component {
   currencyExpense() {
     const { currency } = this.state;
     const { currencyKeys } = this.props;
-    // const test1 = Object.keys(test);
-    console.log(currencyKeys);
     return (
       <label htmlFor="currency">
         Moeda:
