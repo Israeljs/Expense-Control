@@ -180,18 +180,11 @@ FormExpense.propTypes = {
   saveExepenses: PropTypes.func.isRequired,
 };
 
-// FormExpense.defaultProps = {
-//   currencyKeys: [],
-// };
-
 const mapStateToProps = (state) => ({
   currencyKeys: state.wallet.currencyKeys,
   currencies: state.wallet.currencies,
 });
-// const mapStateToProps = (state) => ({
-//   currencyKeys: state.wallet.currencies,
-//   currencies: state.wallet.currencyKeys,
-// });
+
 const mapDispatchToProps = (dispatch) => ({ // recebe um objeto que recebe a dispatch que recebe uma action
   requestKeyCurrencies: () => dispatch(requestApiCurrenciesThunk()),
   saveExepenses: (state) => dispatch(addExpense(state)),
