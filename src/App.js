@@ -10,17 +10,9 @@ class App extends React.Component {
       <Switch>
         <Route exact path="/" component={ Login } />
         <Route exact path="/carteira" component={ Wallet } />
-        {/* <Route path="/" component={  } /> */}
       </Switch>
     );
   }
 }
 
 export default App;
-// import React from 'react';
-
-// function App() {
-//   return <div>Hello, TrybeWallet!</div>;
-// }
-
-// export default App;
