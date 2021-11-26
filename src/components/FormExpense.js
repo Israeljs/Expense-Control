@@ -172,10 +172,15 @@ class FormExpense extends React.Component {
 }
 
 FormExpense.propTypes = {
-  currencyKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
-  currencies: PropTypes.objectOf(PropTypes.object).isRequired,
+  currencyKeys: PropTypes.arrayOf(PropTypes.string),
+  currencies: PropTypes.objectOf(PropTypes.object),
   requestKeyCurrencies: PropTypes.func.isRequired,
   saveExepenses: PropTypes.func.isRequired,
+};
+
+FormExpense.defaultProps = {
+  currencies: {},
+  currencyKeys: [],
 };
 
 const mapStateToProps = (state) => ({
