@@ -2,7 +2,6 @@ import getCurrency from '../services/awesomeapi';
 
 export const SAVE_LOGIN_INFO = 'SAVE_LOGIN_INFO';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
-// export const REQUEST_KEYS_CURRENCIES = 'REQUEST_KEYS_CURRENCIES';
 export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
 
 export const saveLoginInfo = (payLoad) => ({
@@ -20,11 +19,6 @@ export const saveCurrencies = (currencies, currencyKeys) => ({
   currencies,
   currencyKeys,
 });
-
-// export const saveKeysCurrencies = (payLoad) => ({
-//   type: REQUEST_KEYS_CURRENCIES,
-//   payLoad,
-// });
 
 export const requestApiCurrenciesThunk = () => async (dispatch) => {
   const currencies = await getCurrency();
